@@ -25,6 +25,7 @@ const nav = [
 </script>
 <template>
   <UApp :locale="zh_tw" :toaster="null">
+    <a class="skip-link" href="#main-content">跳至主要內容</a>
     <NuxtPwaManifest />
     <div class="app-shell">
       <aside class="sidebar">

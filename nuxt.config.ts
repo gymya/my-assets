@@ -2,7 +2,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-10-01',
   ssr: false,
   modules: ['@nuxt/ui', '@pinia/nuxt', '@nuxt/eslint', '@vite-pwa/nuxt'],
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/refinement.css'],
   devtools: { enabled: false },
   typescript: { strict: true },
   colorMode: { preference: 'dark', fallback: 'dark' },
