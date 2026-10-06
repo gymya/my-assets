@@ -1,0 +1,93 @@
+/* Asset ledger: quiet surfaces, aligned figures, orange reserved for actions. */
+:root {
+  --bg: #141414; --panel: #202020; --border: #383838;
+  --text: #f5f5f5; --muted: #b0b0b0; --accent: #f05e1c;
+  --surface-secondary: #292929; --accent-text: #ff9867;
+  --ui-bg: var(--panel); --ui-bg-elevated: var(--surface-secondary);
+  --ui-text: var(--text); --ui-text-muted: var(--muted); --ui-border: var(--border);
+}
+:root.light {
+  --bg: #f4f5f6; --panel: #ffffff; --border: #d7dade;
+  --text: #24272b; --muted: #5b626b; --surface-secondary: #ebeef1; --accent-text: #ae380a;
+}
+body { line-height: 1.5; }
+.app-shell { background: var(--bg); color: var(--text); }
+.sidebar, .light .sidebar, .topbar, .light .topbar { background: var(--bg); border-color: var(--border); }
+.sidebar nav { margin-top: 40px; }
+.nav-caption, .wealth-illustration, .empty-grid { display: none; }
+.brand-mark { transform: none; border-radius: 10px; }
+.nav-link, .light .nav-link { min-height: 48px; color: var(--muted); border-radius: 8px; }
+.nav-link.active, .light .nav-link.active { background: var(--surface-secondary); color: var(--text); box-shadow: inset 3px 0 var(--accent); }
+.nav-dot { background: var(--accent); }
+main { max-width: 1280px; padding: 40px 40px 32px; }
+h1 { font-size: 28px; letter-spacing: 0; font-weight: 650; }
+h2 { font-size: 17px; letter-spacing: 0; font-weight: 600; }
+.page-heading { margin-bottom: 28px; }
+.eyebrow { letter-spacing: 0; color: var(--muted); font-size: 13px; }
+.wealth-card, .light .wealth-card, .compact-total, .light .compact-total {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 16px;
+  box-shadow: none; border-top: 3px solid var(--accent);
+}
+.net-worth { font-variant-numeric: tabular-nums; letter-spacing: -.035em; font-weight: 600; }
+.wealth-footer, .light .wealth-footer { border-color: var(--border); background: none; }
+.summary-grid { gap: 0; margin: 0 0 32px; border-bottom: 1px solid var(--border); }
+.summary-card, .light .summary-card { background: none; border: 0; border-radius: 0; padding: 24px 16px; }
+.summary-card + .summary-card { border-left: 1px solid var(--border); }
+.summary-icon, .light .summary-icon { background: var(--surface-secondary); color: var(--muted); border: none; border-radius: 8px; }
+.panel, .light .panel { background: var(--panel); border-color: var(--border); border-radius: 12px; box-shadow: none; }
+.charts-grid { gap: 24px; }
+.button, .icon-button, .text-button, .text-link, .segmented button { min-height: 44px; }
+.icon-button { min-width: 44px; }
+.button { border-radius: 8px; font-weight: 600; }
+.button.primary, .light .button.primary { background: var(--accent); color: #231307; border-color: var(--accent); }
+.button.secondary, .light .button.secondary, .segmented, .light .segmented { background: var(--surface-secondary); color: var(--text); border-color: var(--border); }
+.segmented .selected, .light .segmented .selected { background: var(--panel); color: var(--text); box-shadow: inset 0 -2px var(--accent); }
+.text-button, .text-link, .light .text-button, .light .text-link { color: var(--accent-text); }
+button, a { touch-action: manipulation; }
+.button:active, .icon-button:active, .asset-row:active { opacity: .72; }
+.asset-row { min-height: 80px; border-color: var(--border); }
+.asset-value strong, .summary-card strong, td, .rate-grid strong { font-variant-numeric: tabular-nums; }
+.asset-description strong { font-size: 15px; }
+.wealth-footer, .wealth-change, .empty-chart-copy p, .empty-chart-copy,
+.legend-label, .legend-amount, .donut-center > span, .chart-bottom, .muted,
+.light .wealth-footer, .light .wealth-change, .light .empty-chart-copy p,
+.light .legend-label, .light .legend-amount, .light .chart-bottom { color: var(--muted); }
+.asset-value strong { font-size: 16px; }
+.small-label, .field-note, .panel-footnote, .market-note, .asset-description small, .asset-value small,
+.light .small-label, .light .field-note, .light .panel-footnote, .light .market-note,
+.light .asset-description small, .light .asset-value small { color: var(--muted); font-size: 13px; }
+.editor-form label, .light .editor-form label { color: var(--text); }
+.editor-form input, .editor-form select, .light .editor-form input, .light .editor-form select { background: var(--bg); color: var(--text); border-color: var(--muted); min-height: 48px; }
+.editor-form input::placeholder, .light .editor-form input::placeholder { color: var(--muted); }
+.explanation-card, .light .explanation-card { background: var(--surface-secondary); border-color: var(--border); color: var(--text); }
+.explanation-card p, .light .explanation-card p { color: var(--muted); max-width: 72ch; }
+.filter-tabs { gap: 24px; }
+.filter-tabs button { min-height: 48px; color: var(--muted); }
+.filter-tabs .selected, .light .filter-tabs .selected { color: var(--accent-text); }
+.skip-link { position: fixed; left: 16px; top: -100px; z-index: 100; background: var(--panel); color: var(--text); padding: 12px 20px; }
+.skip-link:focus { top: 16px; }
+@media (max-width: 850px) { main { padding: 32px 24px; } }
+@media (max-width: 640px) {
+  main { padding: 24px 20px; }
+  h1, .page-heading h1 { font-size: 26px; }
+  .topbar { height: auto; min-height: 72px; padding-top: env(safe-area-inset-top, 0px); }
+  .wealth-card { padding: 24px 20px 0; }
+  .net-worth { font-size: clamp(30px, 8vw, 44px); }
+  .summary-card { padding: 20px 12px; }
+  .summary-card strong { font-size: clamp(18px, 5vw, 24px); }
+  .charts-grid { gap: 20px; }
+  .segmented button { padding: 8px; font-size: 12px; }
+  .asset-list { padding-inline: 16px; }
+  .filter-tabs { gap: 0; padding-inline: 8px; justify-content: space-around; }
+  .filter-tabs button { padding-inline: 8px; font-size: 13px; }
+  .mobile-nav, .light .mobile-nav { background: var(--panel); border-color: var(--border); height: auto; min-height: 72px; gap: 4px; }
+  .mobile-nav a, .light .mobile-nav a { min-height: 52px; font-size: 12px; color: var(--muted); border-radius: 8px; }
+  .mobile-nav a.active, .light .mobile-nav a.active { color: var(--accent-text); background: var(--surface-secondary); }
+  .page-footer { padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px)); }
+}
+@media (max-width: 380px) {
+  main { padding-inline: 16px; }
+  .trend-panel .section-heading { flex-wrap: wrap; }
+  .asset-row { flex-wrap: wrap; }
+  .asset-value { margin-left: auto; }
+}
