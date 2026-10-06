@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { zh_tw } from '@nuxt/ui/locale'
+useModalViewport()
 const store = usePortfolioStore()
 const colorMode = useColorMode()
 watch(() => store.data.settings.theme, theme => { colorMode.preference = theme }, { immediate: true })

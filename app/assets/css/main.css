@@ -39,6 +39,15 @@ main { max-width: 1380px; margin: 0 auto; padding: 40px 44px 24px; }.page-headin
 .small-label,.eyebrow,.section-subtitle,.panel-footnote,.field-note,.asset-description small,.asset-value small,.market-note,.sidebar-footer,.sidebar-bottom p,.sidebar-bottom a,.currency-tag span,.storage-status,.chart-bottom,.chart-bottom .small-label,.legend-amount,.donut-center>span,.segmented button,.wealth-footer,.page-footer,.mobile-nav a,.list-empty p,.empty-chart-copy p { font-size: 12px; }
 .text-link,.text-button,.allocation-legend>div,.allocation-legend strong { font-size: 14px; }
 @media(max-width:640px) { .topbar-right .storage-status { font-size: 11px; }.asset-value small { font-size: 11px; }.chart-bottom { flex-wrap: wrap; }.chart-bottom .small-label { max-width: none; text-align: left; }.allocation-legend .legend-amount { min-width: 80px; }.heading-actions { justify-content: space-between; }.heading-actions .primary { flex: 1; }.page-heading { gap: 17px; }.asset-description strong { font-size: 14px; }.sidebar-footer { display: none; } }
+/* VisualViewport accounts for iOS keyboards, which do not resize 100dvh. */
+.viewport-modal[data-slot='content'] {
+  top: calc(var(--modal-viewport-top, 0px) + var(--modal-viewport-height, 100dvh) / 2);
+  max-height: max(0px, calc(var(--modal-viewport-height, 100dvh) - 2rem - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px)));
+}
+.viewport-modal > [data-slot='header'],
+.viewport-modal > [data-slot='footer'] { flex-shrink: 0; }
+.viewport-modal > [data-slot='body'] { min-height: 0; overflow-y: auto; overscroll-behavior: contain; scroll-padding-block: 12px; }
+
 /* Number inputs retain numeric validation and mobile keyboards without steppers. */
 input[type='number'] { appearance: textfield; -moz-appearance: textfield; }
 input[type='number']::-webkit-inner-spin-button,
